@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TripForge — Frontend (HTML/CSS/JS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>TripForge</h1>
+        <p class="tag">Plan. Book. Explore.</p>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn">Explore</button>
+        <button class="nav-btn">Bookings</button>
+        <button class="nav-btn">Support</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <h2>Find your next destination</h2>
+        <p>Search stays, experiences, and build a quick itinerary — fast.</p>
+
+        <form id="search-form" class="search-form" aria-label="Search trips">
+          <input id="q" name="q" type="search" placeholder="Where to? (city, landmark, country)" required />
+          <input id="from" name="from" type="date" />
+          <input id="to" name="to" type="date" />
+          <select id="guests" name="guests" aria-label="Guests">
+            <option value="1">1 guest</option>
+            <option value="2">2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+            <option value="5">5 guests</option>
+            <option value="6">6 guests</option>
+          </select>
+          <button id="search-btn" type="submit">Search</button>
+        </form>
+
+        <div class="filters">
+          <label>Max Price: <output id="price-output">20000</output></label>
+          <input id="price" type="range" min="1000" max="50000" step="500" value="20000" />
+          <label>Stars:
+            <select id="stars">
+              <option value="0">Any</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="hero-illustration" aria-hidden="true"></div>
+    </section>
+
+    <section class="content-grid">
+      <aside class="sidebar" aria-label="Saved trips">
+        <h3>Saved trips</h3>
+        <ul id="favorites-list" class="favorites-list">
+          <li class="muted">No saved trips yet.</li>
+        </ul>
+
+        <div class="map-box">Map preview (placeholder)</div>
+      </aside>
+
+      <section class="results-area">
+        <div class="results-header">
+          <h3>Results <small id="results-count">(0)</small></h3>
+        </div>
+
+        <div id="results" class="results-grid" aria-live="polite"></div>
+
+        <div id="pagination" class="pagination"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> TripForge — built with ❤️
+  </footer>
+
+  <!-- DETAILS MODAL -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="document">
+      <button id="moda
